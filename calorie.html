@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calorie Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #B9B6B3;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .container {
+            border-style: solid;
+            border-color: black;
+            border-collapse: collapse;
+            border-radius: 4px;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #6d6c6a;
+            color: #fff;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #000000;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calorie Calculator</h1>
+        <label for="age">Age:</label>
+        <input type="number" id="age" placeholder="Enter your age" />
+        <br />
+        <label for="weight">Weight (kg):</label>
+        <input type="number" id="weight" placeholder="Enter your weight in kilograms" />
+        <br />
+        <label for="height">Height (cm):</label>
+        <input type="number" id="height" placeholder="Enter your height in centimeters" />
+        <br />
+        <button onclick="calculateCalories()">Calculate Calories</button>
+        <br />
+        <h2>Result:</h2>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function calculateCalories() {
+            var ageInput = document.getElementById("age");
+            var weightInput = document.getElementById("weight");
+            var heightInput = document.getElementById("height");
+            var resultDiv = document.getElementById("result");
+
+            var age = parseFloat(ageInput.value);
+            var weight = parseFloat(weightInput.value);
+            var height = parseFloat(heightInput.value);
+
+            if (isNaN(age) || isNaN(weight) || isNaN(height)) {
+                resultDiv.textContent = "Please enter valid values for age, weight, and height.";
+                return;
+            }
+
+            var calories = calculateTotalCalories(age, weight, height);
+
+            resultDiv.textContent = "You should consume approximately " + calories.toFixed(2) + " calories per day.";
+        }
+
+        function calculateTotalCalories(age, weight, height) {
+            
+            var calories = 66+6.2 * weight + 12.7 * height - 6.76 * age;
+            
+
+            return calories;
+        }
+    </script>
+</body

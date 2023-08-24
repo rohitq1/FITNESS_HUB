@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+        <style>
+      
+#log{
+    position:absolute;
+    width:500px;
+    height:600px;
+    border:2px solid black;
+    border-radius:10px;
+    text-align: center;
+    font-family: "Poppins";
+    z-index: 1;
+    top: 20%;
+    left: 35%;
+    background-color: rgba(0, 0, 0, 0.7); 
+    color: #ffffff;
+}
+a{
+    text-decoration: none;
+    color:rgb(255, 255, 255);
+}
+#gmail,#password,#submit{
+    height: 30px;
+    border-radius:8px ;
+}
+#img1{
+    width:200px;
+    height:200px;
+}
+#conditions {
+      position:absolute;
+      top: -10%;
+      left: 10%;
+      width:fit-content;
+      height:fit-content;
+      text-align: left;
+      background-color: rgb(255, 255, 255);
+      color: black;
+      border: 1px solid #ccc;
+      padding: 20px;
+      display: none;
+    }
+body {
+  background-image:url(loginbg.png);
+}
+        </style>
+</head>
+        <body>
+        <form id="log" action="" >
+    <img  id="img1" src="loginprofile.png" alt="loginprofile" >
+    <h2>SIGN IN</h2>
+    <input type="gmail" id="gmail" placeholder="G-mail" size="40" required><br><br>
+    <input type="password" id="password" placeholder="Password" size="40" required><br><br>
+    <button type="submit" id="submit" onclick="checkCredentials()">Login</button><br>
+   
+    <input type="checkbox" id="terms" required>
+    <label  for="terms" onclick="openterms()">Terms & Conditions</label>
+  <div id="conditions">
+    <h5>Terms and Conditions - Fitness Hub</h5>
+    <pre>
+Welcome to Fitness Hub! These Terms and Conditions outline the rules
+and regulations for the use of our website. By accessing and using Fitness
+Hub, you accept and agree to comply with these Terms and Conditions. If you
+do not agree with any part of these terms, please refrain from using our website.
+
+1. User Responsibilities
+ a. By using Fitness Hub, you confirm that you are at least 18 years old or have
+ parental consent if you are under 18.
+
+ b. You agree to provide accurate and complete information when registering or
+ using our services.
+
+ c. You are responsible for maintaining the confidentiality of your account
+ credentials and for all activities that occur under your account.
+
+ d. You must not use Fitness Hub for any illegal, unauthorized, or unethical
+ purposes, including but not limited to the dissemination of harmful, offensive,
+ or misleading content.
+
+2. Disclaimer
+ a. The information provided on Fitness Hub is for general informational purposes
+ only and should not be considered as professional medical or fitness advice.
+ Always consult a qualified professional before starting any workout plan or
+ making significant changes to your fitness routine.
+
+ b. We do not guarantee the accuracy, completeness, or reliability of the content
+ on Fitness Hub. Your use of any information or materials on the website is at your
+ own risk.
+</pre>
+    <button onclick="closeterms()">Back</button>
+  </div>
+<br><br>
+    <a href="newprofile.html" >Sign up for a new account</a>
+        </form>
+        <script>
+             function checkCredentials() {
+            var username = document.getElementById("gmail").value;
+            var password = document.getElementById("password").value;
+            if (username === "fitnesshub@gmail.com" && password === "1234") {
+              document.getElementById("log").action="profile.html";
+            } else {
+                alert("Incorrect username or password. Please try again.");
+document.getElementById("log").action="login.html";
+              }
+        }
+        function openterms() {
+      var conditions = document.getElementById('conditions');
+      conditions.style.display = 'block';
+    }
+
+    function closeterms() {
+      var conditions = document.getElementById('conditions');
+      conditions.style.display = 'none';
+    }
+        </script>
+        </body></html>
